@@ -15,4 +15,6 @@ press.eeprom
 darktangent.eeprom
 
 
+paralax-tools:
+
 
