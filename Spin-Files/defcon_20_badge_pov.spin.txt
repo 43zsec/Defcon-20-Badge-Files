@@ -1,0 +1,523 @@
+'' -------------------------------------------
+'' Defcon 20 Badge POV
+''       
+'' Written by YakPiMP 2012
+''
+'' yakhack.wordpress.com
+'' -------------------------------------------
+VAR
+
+  byte count
+  byte A[10]
+  byte B[10]
+  byte C[10]
+  byte D[10]
+  byte E[10]
+  byte F[10]
+  byte G[10]
+  byte H[10]
+  byte I[10]
+  byte J[10]
+  byte K[10]
+  byte L[10]
+  byte M[10]
+  byte N[10]
+  byte O[10]
+  byte P[10]
+  byte Q[10]
+  byte R[10]
+  byte S[10]
+  byte T[10]
+  byte U[10]
+  byte V[10]
+  byte W[10]
+  byte X[10]
+  byte Y[10]
+  byte Z[10]
+  byte SPACE[8]
+  byte APOSTROPHE[8]
+  byte SMILE[10]
+  byte PERIOD[10]
+  byte SIN[15]
+  byte ZIGZAG[15]
+  byte DICK[25]                    
+
+CON        
+  LED1 = 16
+  LED2 = 17
+  LED3 = 18
+  LED4 = 19
+  LED5 = 20
+  LED6 = 21
+  LED7 = 22
+  LED8 = 23
+
+  DELAY = 800
+                                              
+PUB main         
+  InitLetters
+  
+repeat 600
+  'DrawFUCKYOU
+  'DrawDEFCONXX
+  'DrawYAKHACK
+  'DrawSIN
+  'DrawZIGZAG
+  'DrawDONTFUCKITUP
+   DrawDICK                                           
+PUB DrawLetter(letter)
+  count := 1
+  outa[LED1..LED8] := %00000000
+    
+  repeat byte[letter]
+      outa[LED1..LED8] := byte[letter + count]
+      waitcnt(clkfreq/DELAY + cnt)
+      count += 1
+
+PUB DrawLetterBackward(letter)
+  count := 0
+  outa[LED1..LED8] := %00000000
+    
+  repeat byte[letter]
+      outa[LED1..LED8] := byte[letter + (byte[letter] - count)]
+      waitcnt(clkfreq/DELAY + cnt)
+      count += 1
+
+PUB Wait(waitDelay)
+  waitcnt(clkfreq/DELAY * waitDelay + cnt)
+  
+PUB InitLetters
+  dira[LED1..LED8] := %11111111    
+
+  A[0] := 6
+  A[1] := %11111111
+  A[2] := %11111111
+  A[3] := %11101100
+  A[4] := %11111111
+  A[5] := %11111111
+  A[6] := %0000000
+
+  B[0] := 5
+  B[1] := %11111111
+  B[2] := %11011011
+  B[3] := %11011011
+  B[4] := %01100110
+  B[5] := %00000000
+  
+  C[0] := 6
+  C[1] := %11111111
+  C[2] := %11111111
+  C[3] := %11000011
+  C[4] := %11000011
+  C[5] := %11000011
+  C[6] := %00000000
+  
+  D[0] := 6
+  D[1] := %11111111
+  D[2] := %11111111
+  D[3] := %11000011
+  D[4] := %01100110
+  D[5] := %00111100
+  D[6] := %00000000
+
+  E[0] := 6
+  E[1] := %11111111
+  E[2] := %11111111
+  E[3] := %11011011
+  E[4] := %11011011
+  E[5] := %11000011
+  E[6] := %00000000
+  
+  F[0] := 6
+  F[1] := %11111111
+  F[2] := %11111111
+  F[3] := %11011000
+  F[4] := %11011000
+  F[5] := %11000000
+  F[6] := %00000000
+
+  H[0] := 7
+  H[1] := %11111111
+  H[2] := %11111111
+  H[3] := %00011000
+  H[4] := %00011000
+  H[5] := %11111111
+  H[6] := %11111111
+  H[7] := %00000000
+
+  I[0] := 7
+  I[1] := %11000011
+  I[2] := %11000011
+  I[3] := %11111111
+  I[4] := %11111111
+  I[5] := %11000011
+  I[6] := %11000011
+  I[7] := %00000000
+
+  J[0] := 7
+  J[1] := %11000000
+  J[2] := %11000000
+  J[3] := %11111110
+  J[4] := %11111111
+  J[5] := %11000011
+  J[6] := %11000111
+  J[7] := %00000000
+
+  K[0] := 6
+  K[1] := %11111111
+  K[2] := %11111111
+  K[3] := %00111100
+  K[4] := %01100110
+  K[5] := %11000011
+  K[6] := %00000000
+
+  L[0] := 6
+  L[1] := %11111111
+  L[2] := %11111111
+  L[3] := %00000011
+  L[4] := %00000011
+  L[5] := %00000011
+  L[6] := %00000000
+
+  M[0] := 8
+  M[1] := %11111111
+  M[2] := %11111111
+  M[3] := %01100000
+  M[4] := %00111000
+  M[5] := %01100000
+  M[6] := %11111111
+  M[7] := %11111111
+  M[8] := %00000000
+
+  N[0] := 8
+  N[1] := %11111111
+  N[2] := %11111111
+  N[3] := %01110000
+  N[4] := %00011000
+  N[5] := %00011100
+  N[6] := %11111111
+  N[7] := %11111111
+  N[8] := %00000000
+
+  O[0] := 7
+  O[1] := %11111111
+  O[2] := %11111111
+  O[3] := %11000011
+  O[4] := %11000011
+  O[5] := %11111111
+  O[6] := %11111111
+  O[7] := %00000000
+
+  P[0] := 6
+  P[1] := %11111111
+  P[2] := %11111111
+  P[3] := %11001100
+  P[4] := %11001100
+  P[5] := %01111000
+  P[6] := %00000000
+
+  Q[0] := 8
+  Q[1] := %00000110
+  Q[2] := %11111111
+  Q[3] := %11111111
+  Q[4] := %11001011
+  Q[5] := %11000011
+  Q[6] := %11111111
+  Q[7] := %11111111
+  Q[8] := %00000000
+
+  R[0] := 6
+  R[1] := %11111111
+  R[2] := %11111111
+  R[3] := %11001100
+  R[4] := %11001111
+  R[5] := %01111001
+  R[6] := %00000000
+             
+  S[0] := 5
+  S[1] := %01100011
+  S[2] := %11110011
+  S[3] := %11010011
+  S[4] := %11001110
+  S[5] := %00000000
+           
+  T[0] := 7
+  T[1] := %11000000
+  T[2] := %11000000
+  T[3] := %11111111
+  T[4] := %11111111
+  T[5] := %11000000
+  T[6] := %11000000
+  T[7] := %00000000
+         
+  U[0] := 7
+  U[1] := %11111111
+  U[2] := %11111111
+  U[3] := %00000011
+  U[4] := %00000011
+  U[5] := %11111111
+  U[6] := %11111111
+  U[7] := %00000000
+
+  V[0] := 7
+  V[1] := %11111000
+  V[2] := %11111110
+  V[3] := %00000011
+  V[4] := %00000011
+  V[5] := %11111110
+  V[6] := %11111000
+  V[7] := %00000000
+  
+  W[0] := 8
+  W[1] := %11111111
+  W[2] := %11111111
+  W[3] := %00000110
+  W[4] := %00011100
+  W[5] := %00000110
+  W[6] := %11111111
+  W[7] := %11111111
+  W[8] := %00000000
+
+  X[0] := 6
+  X[1] := %11100111
+  X[2] := %01111110
+  X[3] := %00011000
+  X[4] := %01111110
+  X[5] := %11100111
+  X[6] := %00000000
+           
+  Y[0] := 7
+  Y[1] := %11100000
+  Y[2] := %01111000
+  Y[3] := %00011111
+  Y[4] := %00011111
+  Y[5] := %01111000
+  Y[6] := %11100000
+  Y[7] := %00000000
+
+  Z[0] := 6
+  Z[1] := %11000011
+  Z[2] := %11001111
+  Z[3] := %11011011
+  Z[4] := %11110011
+  Z[5] := %11000011
+  Z[6] := %00000000 
+  
+  SPACE[0] := 5        
+  SPACE[1] := %00000000
+  SPACE[2] := %00000000
+  SPACE[3] := %00000000
+  SPACE[4] := %00000000
+  SPACE[5] := %00000000
+
+  APOSTROPHE[0] := 3
+  APOSTROPHE[1] := %11100000
+  APOSTROPHE[2] := %11100000
+  APOSTROPHE[3] := %00000000
+
+  SMILE[0] := 8        
+  SMILE[1] := %01111110
+  SMILE[2] := %10000001 
+  SMILE[3] := %10110101
+  SMILE[4] := %10000101
+  SMILE[5] := %10110101
+  SMILE[6] := %10000001
+  SMILE[7] := %01111110
+  SMILE[8] := %00000000
+
+  Period[0] := 3        
+  Period[1] := %00000111
+  Period[2] := %00000111
+  Period[3] := %00000000
+
+  ZIGZAG[0] :=  12             
+  ZIGZAG[1] :=  %11000000
+  ZIGZAG[2] :=  %01100000
+  ZIGZAG[3] :=  %00110000
+  ZIGZAG[4] :=  %00011000
+  ZIGZAG[5] :=  %00001100
+  ZIGZAG[6] :=  %00000110
+  ZIGZAG[7] :=  %00000011
+  ZIGZAG[8] :=  %00000110
+  ZIGZAG[9] :=  %00001100
+  ZIGZAG[10] := %00011000
+  ZIGZAG[11] := %00110000
+  ZIGZAG[12] := %01100000
+
+  SIN[0] :=  8             
+  SIN[1] :=  %11100000
+  SIN[2] :=  %11100000
+  SIN[3] :=  %00111000
+  SIN[4] :=  %00011100
+  SIN[5] :=  %00000111
+  SIN[6] :=  %00000111
+  SIN[7] :=  %00011100
+  SIN[8] :=  %00111000
+
+  DICK[0]  := 23        
+  DICK[1]  := %11100111        
+  DICK[2]  := %11100111
+  DICK[3]  := %10011001
+  DICK[4]  := %10011001
+  DICK[5]  := %11100111
+  DICK[6]  := %11100111 
+  DICK[7]  := %01100110
+  DICK[8]  := %01100110
+  DICK[9]  := %01100110
+  DICK[10] := %01100110
+  DICK[11] := %01100110
+  DICK[12] := %01100110
+  DICK[13] := %01100110
+  DICK[14] := %01100110
+  DICK[15] := %11111111
+  DICK[16] := %11000011
+  DICK[17] := %01100110
+  DICK[18] := %00111100
+  DICK[19] := %00000000
+  DICK[20] := %00010000
+  DICK[21] := %00001000
+  DICK[22] := %00010000
+  DICK[23] := %00000000                 
+  
+PUB DrawFUCKYOU
+  DrawLetter(@F)
+  DrawLetter(@U)
+  DrawLetter(@C)
+  DrawLetter(@K)    
+  DrawLetter(@SPACE)
+  DrawLetter(@Y)
+  DrawLetter(@O)
+  DrawLetter(@U)    
+  DrawLetter(@SPACE)
+  DrawLetter(@SPACE)
+  Wait(40)          
+  DrawLetterBackward(@U)
+  DrawLetterBackward(@O)
+  DrawLetterBackward(@Y)    
+  DrawLetter(@SPACE)
+  DrawLetterBackward(@K)
+  DrawLetterBackward(@C)
+  DrawLetterBackward(@U)
+  DrawLetterBackward(@F)    
+  DrawLetter(@SPACE)
+  DrawLetter(@SPACE)
+  Wait(40)
+
+PUB DrawDEFCONXX
+  DrawLetter(@D)
+  DrawLetter(@E)
+  DrawLetter(@F)
+  DrawLetter(@C)
+  DrawLetter(@O)
+  DrawLetter(@N)      
+  DrawLetter(@SPACE)
+  DrawLetter(@X)
+  DrawLetter(@X)
+  DrawLetter(@SPACE)
+  DrawLetter(@SPACE)    
+  Wait(40)              
+  DrawLetterBackward(@X)
+  DrawLetterBackward(@X)
+  DrawLetter(@SPACE)
+  DrawLetterBackward(@N)
+  DrawLetterBackward(@O)
+  DrawLetterBackward(@C)
+  DrawLetterBackward(@F)
+  DrawLetterBackward(@E)
+  DrawLetterBackward(@D)
+  DrawLetter(@SPACE)
+  DrawLetter(@SPACE)  
+  Wait(40)
+
+PUB DrawYAKHACK
+  DrawLetter(@Y)
+  DrawLetter(@A)
+  DrawLetter(@K)
+  DrawLetter(@H)
+  DrawLetter(@A)
+  DrawLetter(@C)
+  DrawLetter(@K)  
+  DrawLetter(@SPACE)
+  DrawLetter(@SPACE)    
+  Wait(40)       
+  DrawLetter(@K)
+  DrawLetter(@C)
+  DrawLetter(@A)
+  DrawLetter(@Y)
+  DrawLetter(@K)
+  DrawLetter(@A)
+  DrawLetter(@Y)   
+  DrawLetter(@SPACE)
+  DrawLetter(@SPACE)    
+  Wait(40)
+
+PUB DrawZIGZAG
+ repeat 10
+  DrawLetter(@ZIGZAG)
+
+PUB DrawSIN
+ repeat 10
+  DrawLetter(@SIN)   
+
+PUB DrawDONTFUCKITUP
+  repeat 10
+    DrawLetter(@D)
+    DrawLetter(@O)
+    DrawLetter(@N)
+    DrawLetter(@APOSTROPHE)
+    DrawLetter(@T)
+    Wait(40)
+    DrawLetter(@T)
+    DrawLetter(@APOSTROPHE)
+    DrawLetter(@N)
+    DrawLetter(@O)
+    DrawLetter(@D)
+    Wait(40)
+        
+  repeat 10     
+    DrawLetter(@F)
+    DrawLetter(@U)
+    DrawLetter(@C)
+    DrawLetter(@K)
+    DrawLetter(@SPACE)    
+    Wait(40)
+    DrawLetter(@K)
+    DrawLetter(@C)
+    DrawLetter(@U)
+    DrawLetter(@F)    
+    DrawLetter(@SPACE)
+    Wait(40)
+    
+  repeat 10      
+    DrawLetter(@I)
+    DrawLetter(@T)    
+    DrawLetter(@SPACE)
+    DrawLetter(@SPACE)
+    DrawLetter(@SPACE)
+    Wait(40)
+    DrawLetter(@T)
+    DrawLetter(@I)    
+    DrawLetter(@SPACE)
+    DrawLetter(@SPACE)
+    DrawLetter(@SPACE)
+    Wait(40)
+    
+  repeat 10      
+    DrawLetter(@U)
+    DrawLetter(@P)    
+    DrawLetter(@SPACE)
+    DrawLetter(@SPACE)
+    DrawLetter(@SPACE)
+    Wait(40) 
+    DrawLetter(@P)
+    DrawLetter(@U)    
+    DrawLetter(@SPACE)
+    DrawLetter(@SPACE)
+    DrawLetter(@SPACE)
+    Wait(40) 
+
+PUB DrawDICK
+  DrawLetter(@DICK)
+  DrawLetter(@SPACE)
+  DrawLetter(@SPACE)
+  Wait(40)
